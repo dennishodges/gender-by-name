@@ -1,0 +1,16 @@
+{
+  "name": "gender-by-name",
+  "version": "1.0.0",
+  "description": "This is a simple API that predicts gender, given a first name and a year-of-birth, using US Social Security Administration data. The data can be found at https://www.ssa.gov/oact/babynames/limits.html.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ip": "^1.1.5"
+  }
+}
