@@ -1,7 +1,7 @@
 const app = require("express")();
 const ip = require("ip");
 const bodyParser = require("body-parser");
-const getGender = require("./gender.js");
+const {getGender} = require("./gender.js");
 
 const PORT = process.env.PORT || 5555;
 app.use(bodyParser.urlencoded({extended:true}));
