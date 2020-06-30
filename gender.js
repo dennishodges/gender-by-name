@@ -31,9 +31,14 @@ const csvToJson = csv => {
 }
 
 const genderByName = (name, year) => {
+  if (!name || !year){
+    return "Name and year are required parameters";
+  }
   if (year < 1880 || year > 2018){
     return "Year must be in range: 1880 - 2018";
   }
+  name = name.trim().toLowerCase();
+  year = year.trim();
   let namesJson;
   if (! jsonByYear.hasOwnProperty(year)){
     const namesCsv = fs.readFileSync(`./names/yob${year}.txt`, {encoding: "utf8"});
@@ -60,8 +65,8 @@ const genderByName = (name, year) => {
 }
 
 const getGender = (req, res, next) => {
-  const name = req.query.name.trim().toLowerCase();
-  const year = req.query.year.trim();
+  const name = req.query.name;
+  const year = req.query.year;
   const prediction = genderByName(name, year);
   return res.json(prediction)
 }
